@@ -1,0 +1,48 @@
+<% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@movie.errors.count, "error") %>
+        prevented your movie from saving
+      </h2>
+      <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @movie, html: {multipart: true} do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :movie_length %>
+          <%= f.text_field :movie_length, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :director %>
+          <%= f.text_field :director, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :rating %>
+          <%= f.text_field :rating, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Save Movie", class: "btn btn-success" %>
+        </div>
+    <% end %>
+  </div>
+</div>
