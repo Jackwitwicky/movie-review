@@ -1,0 +1,7 @@
+<h1>Your profile page</h1>
+
+<p><%= @user.name %></p>
+
+<p><%= @user.email %></p>
+
+<p><%= link_to "Edit your Profile", edit_user_path(@user), class: "btn btn-primary" %></p>
