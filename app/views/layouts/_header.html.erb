@@ -1,0 +1,18 @@
+<header>
+  <div class="navbar navbar-default">
+    <%= link_to "Movie Review", root_path, id: "logo" %>
+
+    <nav>
+      <div class="nav navbar-nav pull-right">
+        <ul>
+          <% if logged_in? %>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "login", login_path %></li>
+          <% end %>
+          <li><%= link_to "About", "#" %></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'movies#index'
 
+  get     'login'   => "sessions#new"
+  post    'login'   => "sessions#create"
+  delete  'logout'  => "sessions#destroy"
+
   resources :movies
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
