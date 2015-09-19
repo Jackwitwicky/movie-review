@@ -1,0 +1,19 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+body {
+  background-color: darkred;
+}
+/* index page */
+#logo {
+  font-size: 2em;
+  font-weight: bold;
+  float: left;
+  padding-left: 20px;
+
+  &:hover {
+    text-decoration: none;
+    color: lightcoral;
+  }
+}
