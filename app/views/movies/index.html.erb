@@ -2,6 +2,9 @@
 
 <% @movie.each do |movie| %>
     <p>
+      <%= link_to (image_tag movie.image.url(:medium)), movie %>
+    </p>
+    <p>
       <%= movie.title %>
       <%= link_to "Show", movie %>
       <%= link_to "Edit", edit_movie_path(movie) %>

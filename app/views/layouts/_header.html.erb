@@ -3,7 +3,7 @@
     <%= link_to "Movie Review", root_path, id: "logo" %>
 
     <nav>
-        <ul class="navbar-nav nav pull-right">
+        <ul class="navbar-nav nav">
           <% if logged_in? %>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
           <% else %>
@@ -13,5 +13,12 @@
           <li><%= link_to "About", "#" %></li>
         </ul>
     </nav>
+
+    <div class="navbar-form navbar-right">
+      <div class="form-group">
+        <input type="text" class="form-inline" placeholder="search">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
   </div>
 </header>
