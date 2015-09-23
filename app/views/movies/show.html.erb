@@ -1,21 +1,48 @@
-<h1>Your movie</h1>
+<div class="row">
+  <h1 class="page-header text-center">
+    View Movie
+    <span class="pull-right"><%= link_to "Back", "#", class: "btn btn-lg btn-warning" %></span>
+  </h1>
+</div>
 
-<p>
-  <%= image_tag @movie.image.url(:medium) %>
-</p>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-md-4">
+        <%= image_tag @movie.image.url(:medium) %>
 
-<p>
-  <%= @movie.title %>
-</p>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <tbody>
+                <tr>
+                  <td><strong>Title: </strong></td>
+                  <td><%= @movie.title %></td>
+                </tr>
 
-<p>
-  <%= @movie.description %>
-</p>
+                <tr>
+                  <td><strong>Description: </strong></td>
+                  <td><%= @movie.description %></td>
+                </tr>
 
-<p>
-  <%= @movie.movie_length %>
-</p>
+                <tr>
+                  <td><strong>Length: </strong></td>
+                  <td><%= @movie.movie_length %></td>
+                </tr>
 
-<p>
-  <%= link_to "Home", root_path %>
-</p>
+
+                <tr>
+                  <td><strong>Director: </strong></td>
+                  <td><%= @movie.director %></td>
+                </tr>
+
+                <tr>
+                  <td><strong>Rating: </strong></td>
+                  <td><%= @movie.rating %></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
