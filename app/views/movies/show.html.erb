@@ -1,15 +1,20 @@
 <div class="row">
   <h1 class="page-header text-center">
     View Movie
-    <span class="pull-right"><%= link_to "Back", "#", class: "btn btn-lg btn-warning" %></span>
+    <span class="pull-right"><%= link_to "Back", root_path, class: "btn btn-lg btn-warning" %></span>
   </h1>
 </div>
 
 <div class="row">
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="col-md-4">
-        <%= image_tag @movie.image.url(:medium) %>
+      <div class="col-md-6">
+        <%= image_tag @movie.image.url(:medium), class: "img-rounded" %>
+
+        <p>
+            <div class="star-rating" data-score=<%= @avg_review %>></div>
+            <em><%= @movie.reviews.length %> reviews</em>
+        </p>
 
         <div class="table-responsive">
           <table class="table table-hover">
@@ -43,6 +48,47 @@
           </table>
         </div>
       </div>
+
+      <div class="col-md-push-2 col-md-4">
+        <div class="review-list">
+          <% if @movie.reviews.any? %>
+              <% @movie.reviews.each do |review| %>
+                  <p>
+                    <div class="star-rating" data-score=<%= review.rating %>></div>
+                  </p>
+                  <p>
+                    <%= review.comment %>
+                  </p>
+                  <p class="user-name">
+                    Submitted by <%= review.user.name %>, <%= time_ago_in_words(review.created_at) %> ago
+                  </p>
+
+                  <hr class="featurette-divider">
+              <% end %>
+          <% else %>
+            Be the first to review this movie below.
+          <% end %>
+        </div>
+        <h2>Add a Review</h2>
+
+        <% if logged_in? %>
+            <%= render 'reviews/form' %>
+            <% else %>
+        <div class="alert alert-info">
+          Please login so you can comment and review this movie.
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+  $(".star-rating").raty( {
+      path: '/assets',
+              readOnly: true,
+              score: function() {
+          return $(this).attr('data-score');
+      }
+  });
+</script>
