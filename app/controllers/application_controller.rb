@@ -4,4 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include SessionsHelper
+
+  def admin_required
+    if !admin_logged_in?
+      flash[:info] = "You need to be logged in to perform this action"
+      redirect_to login_path
+    end
+  end
 end

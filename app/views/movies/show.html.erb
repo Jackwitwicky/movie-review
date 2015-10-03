@@ -47,6 +47,10 @@
             </tbody>
           </table>
         </div>
+        <% if admin_logged_in? %>
+            <%= link_to "Edit", "#", class: "btn btn-primary" %>
+            <%= link_to "Delete", "#", class: "btn btn-primary" %>
+        <% end %>
       </div>
 
       <div class="col-md-push-2 col-md-4">

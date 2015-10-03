@@ -5,6 +5,16 @@
 body {
   background-color: darkred;
 }
+
+/* header */
+.nav {
+  padding-left: 280px;
+}
+
+.navbar-right {
+  padding-right: 40px;
+}
+
 /* index page */
 #logo {
   font-size: 2em;
@@ -19,6 +29,7 @@ body {
 }
 
 .image-wrapper {
+  margin-bottom: 30px;
   background-color: white;
   overflow: hidden;
   border-radius: 5px;

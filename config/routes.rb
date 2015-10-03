@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post    'login'   => "sessions#create"
   delete  'logout'  => "sessions#destroy"
 
+  get   'admin' => "users#control"
+  post  'admin' => "users#control"
+
   resources :movies do
     resources :reviews
   end

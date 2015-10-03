@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :admin_required, only: [:control]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -32,6 +33,10 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def control
+    @user = User.find_by(id: params[:id])
   end
 
   private

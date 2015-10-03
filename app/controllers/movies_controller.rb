@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :admin_required, except: [:index, :show]
   def index
     @movie = Movie.all
   end

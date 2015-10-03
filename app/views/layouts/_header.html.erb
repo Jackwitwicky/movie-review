@@ -6,6 +6,9 @@
         <ul class="navbar-nav nav">
           <% if logged_in? %>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
+              <% if admin_logged_in? %>
+                <li><%= link_to "Control", admin_path %></li>
+              <% end %>
           <% else %>
               <li><%= link_to "Join", new_user_path %></li>
               <li><%= link_to "Login", login_path %></li>
