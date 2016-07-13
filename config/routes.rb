@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/about'
+
   root 'movies#index'
 
   get     'login'   => "sessions#new"
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
 
   get   'admin' => "users#control"
   post  'admin' => "users#control"
+
+  get 'about' => "static_pages#about"
 
   resources :movies do
     resources :reviews
